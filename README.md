@@ -3,7 +3,7 @@ Welcome to the Getting started with Hyperparameter Optimisation project.
 __Please start by creating a copy of this project in your personal projects space.__
 To avoid accidentaly modifying the master project, please create a copy in your personal projects space. You can do this by clicking the Copy button in the top-right corner of the screen. 
 
-![Copy button](raw/latest/images/copy.png)
+![Copy button](images/copy.png)
 
 This will open a Copy dialog, promting you to enter a new project name. You can leave this field blank and keep the project's original name. Since the copy will reside in your personal namespace, its name will not clash with the original project. 
 Now click the __Copy__ button. Domino creates a personal copy of this project and automatically switches you to this new copy.
