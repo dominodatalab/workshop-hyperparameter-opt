@@ -27,7 +27,7 @@ When creating a new Workspace for this workshop, please keep the following in mi
 
 To create a new Workspace for your project, go to Workspaces -> Create New Workspace, or simply press the button below:
 
-[![Run Notebook](raw/latest/images/create_workspace.png)](/workspace/:ownerName/:projectName?showWorkspaceLauncher=True)
+[![Run Notebook](images/create_workspace.png)](/workspace/:ownerName/:projectName?showWorkspaceLauncher=True)
 
 ### Setting up your Ray workspace
 
@@ -38,4 +38,4 @@ The only change you need to make is in the Compute Cluster section, which should
 * Make sure that "Min workers" is set to 1
 * Make sure that "Cluster Compute Environment" is set to "Ray Cluster Environment 1.12"
 
-![Ray workspace](raw/latest/images/ray.png)
+![Ray workspace](images/ray.png)
