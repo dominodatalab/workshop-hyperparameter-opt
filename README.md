@@ -36,6 +36,69 @@ The only change you need to make is in the Compute Cluster section, which should
 
 * Make sure that "Attach Compute Cluster" is set to Ray
 * Make sure that "Min workers" is set to 1
-* Make sure that "Cluster Compute Environment" is set to "Ray Cluster Environment 1.12"
+* Make sure that "Cluster Compute Environment" is set to "Hyperopt Ray"
 
 ![Ray workspace](images/ray.png)
+
+### Compute environments
+
+This project uses two compute environments --- Hyperopt Workspace abd Hyperopt Ray. This section contains the respective Dockerfiles.
+
+```
+# Hyperopt Workspace
+FROM quay.io/domino/compute-environment-images:ubuntu20-py3.9-r4.2-domino5.2-gpu
+
+USER ubuntu
+RUN pip install --upgrade pip
+
+RUN pip install torch --user torchsummary==1.5.1 torchvision==0.13.1
+
+RUN pip install hyperopt==0.2.7
+
+RUN pip install --user ray[all]==1.12.0
+```
+
+The Pluggable Workspace Tools configuration for this environment is as follows:
+
+```
+jupyter:
+  title: "Jupyter (Python, R, Julia)"
+  iconUrl: "/assets/images/workspace-logos/Jupyter.svg"
+  start: [ "/var/opt/workspaces/jupyter/start" ]
+  httpProxy:
+    port: 8888
+    rewrite: false
+    internalPath: "/{{ownerUsername}}/{{projectName}}/{{sessionPathComponent}}/{{runId}}/{{#if pathToOpen}}tree/{{pathToOpen}}{{/if}}"
+    requireSubdomain: false
+  supportedFileExtensions: [ ".ipynb" ]
+jupyterlab:
+  title: "JupyterLab"
+  iconUrl: "/assets/images/workspace-logos/jupyterlab.svg"
+  start: [  /var/opt/workspaces/Jupyterlab/start.sh ]
+  httpProxy:
+    internalPath: "/{{ownerUsername}}/{{projectName}}/{{sessionPathComponent}}/{{runId}}/{{#if pathToOpen}}tree/{{pathToOpen}}{{/if}}"
+    port: 8888
+    rewrite: false
+    requireSubdomain: false
+```
+
+The Ray cluster uses the following compute environment:
+
+```
+# Hyperopt Ray
+FROM quay.io/domino/cluster-environment-images:ray1.12.0-py3.9.5-gpu
+
+RUN pip install torchsummary==1.5.1 torchvision==0.13.1
+
+RUN pip install hyperopt==0.2.7
+
+USER root
+RUN \
+  groupadd -g 12574 ubuntu && \
+  useradd -u 12574 -g 12574 -m -N -s /bin/bash ubuntu
+
+
+RUN chmod a+rw /home/ray
+```
+
+Also note, that when creating the Hyperopt Ray environment, Supported Cluster Settings should be set to Ray.
