@@ -1,3 +1,5 @@
+## Getting started with Hyperparameter Optimisation
+
 Welcome to the Getting started with Hyperparameter Optimisation project.
 
 __Please start by creating a copy of this project in your personal projects space.__
