@@ -12,10 +12,7 @@ Now click the __Copy__ button. Domino creates a personal copy of this project an
 
 ### Project description
 
-This project contains all the hands-on work for the Getting started with Hyperparameter Optimisation workshop. All the assets are available in the [Files](browse) section section of the project. The two key directories to be aware of are 
-
-* `hands-on` - contains the hands-on labs
-* `hands-on-sol` - contains the solutions to all labs. Our advice is to only look at the solution after you've completed the relevant lab.
+This project contains all the hands-on work for the Getting started with Hyperparameter Optimisation workshop. All the assets are available in the [Files](browse) section section of the project. 
 
 ### Setting up your JupyterLab workspace
 
