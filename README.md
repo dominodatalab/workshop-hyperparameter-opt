@@ -41,7 +41,7 @@ The only change you need to make is in the Compute Cluster section, which should
 
 ### Compute environments
 
-This project uses two compute environments --- Hyperopt Workspace abd Hyperopt Ray. This section contains the respective Dockerfiles.
+This project uses two compute environments --- Hyperopt Workspace and Hyperopt Ray. This section contains the respective Dockerfiles.
 
 ```
 # Hyperopt Workspace
